@@ -1,7 +1,12 @@
+var path = require("path"); //path is node module to help parsing and transforming filepaths
+
 module.exports = {
-  entry: "./entry.js",
+  entry: [ "webpack/hot/dev-server",
+    "webpack-dev-server/client?http://localhost:8080",
+    path.resolve(__dirname, "app/main.js")
+  ],
   output: {
-    path: "./build",
+    path: path.resolve(__dirname, "build"),
     filename: "bundle.js"
   },
   module: {

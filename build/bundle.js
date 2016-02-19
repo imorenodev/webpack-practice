@@ -44,29 +44,40 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	(function webpackMissingModule() { throw new Error("Cannot find module \"webpack/hot/dev-server\""); }());
+	(function webpackMissingModule() { throw new Error("Cannot find module \"webpack-dev-server/client?http://localhost:8080\""); }());
+	module.exports = __webpack_require__(1);
 
-	__webpack_require__(1);
-	document.write(__webpack_require__(5));
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	__webpack_require__(2);
+	var component = __webpack_require__(6);
+
+	document.body.appendChild(component());
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(2);
+	var content = __webpack_require__(3);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./node_modules/css-loader/index.js!./style.css", function() {
-				var newContent = require("!!./node_modules/css-loader/index.js!./style.css");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./style.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./style.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -76,10 +87,10 @@
 	}
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(3)();
+	exports = module.exports = __webpack_require__(4)();
 	// imports
 
 
@@ -90,7 +101,7 @@
 
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -145,7 +156,7 @@
 	};
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -399,12 +410,18 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports) {
 
 	"use strict";
 
-	module.exports = "It works from content.js!";
+	module.exports = function () {
+	  var element = document.createElement("h1");
+
+	  element.innerHTML = "Hello world!! Z";
+
+	  return element;
+	};
 
 /***/ }
 /******/ ]);
