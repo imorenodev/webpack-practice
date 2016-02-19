@@ -1,7 +1,7 @@
 module.exports = {
   entry: "./entry.js",
   output: {
-    path: __dirname,
+    path: "./build",
     filename: "bundle.js"
   },
   module: {
@@ -12,7 +12,6 @@ module.exports = {
         loader: "babel-loader",
         query: {
           presets: ["es2015", "react"]
-          ]
         }
       }
     ]
