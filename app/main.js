@@ -1,7 +1,11 @@
 "use strict";
-
 require("./style.css");
-const component = require("./content.js")();
+import MyModule from "./modules/MyModule.js";
+import Component from "./content.js";
 
-document.body.appendChild(component.msg);
-document.body.appendChild(component.element);
+const myComp = new Component();
+const app = document.createElement("div");
+
+document.body.appendChild(app);
+app.appendChild(myComp.msg);
+app.appendChild(myComp.element);
